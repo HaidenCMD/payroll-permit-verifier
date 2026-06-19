@@ -222,11 +222,5 @@ __marimo__/
 *.xls
 *.csv
 
-# Project input/output folders
-input/
-output/
-**/input/
-**/output/
-
 # Extra local files
 *.log
