@@ -37,7 +37,19 @@ combined_df = pd.concat([fam_df, sam_df], ignore_index=True)
 # # put to excel and save in INPUT_DIR
 # combined_df.to_excel(combined_output_file, index=False)
 
-local_raw = pd.read_excel(INPUT_DIR / "LOCAL" / , dtype=str)
+local_file = get_first_excel_file(LOCAL_DIR, "LOCAL")
+
+# header=None => do not assume clean header row. Can fix later when fixing report style.
+local_raw = pd.read_excel(local_file, header=None, dtype=str)
+
+#          ( Grab first column ) (convert to: string) (rm trailing)
+first_col = local_raw.iloc[:, 0].astype("string").str.strip()
+
+# Keep only rows with a number (starts with one, at least)
+local_df = local_raw[first_col.str.match(r"^\d", na=False)].copy()
+
+# Either local_raw[EmployeeID"],
+# or local_raw.iloc[:, 0] (if no header)
 
 
 # # -----------------------------
