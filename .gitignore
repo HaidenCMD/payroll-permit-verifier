@@ -1,0 +1,30 @@
+__pycache__/
+*.py[codz]
+.venv/
+venv/
+.env
+
+# Keep input/output folder structure, but never commit real data files
+input/*
+!input/FAM/
+!input/SAM/
+!input/MOHAWK/
+!input/LOCAL/
+!input/FAM/.gitkeep
+!input/SAM/.gitkeep
+!input/MOHAWK/.gitkeep
+!input/LOCAL/.gitkeep
+output/*
+!output/.gitkeep
+
+*.xlsx
+*.xls
+*.csv
+~$*.xlsx
+~$*.xls
+*.log
+
+# Old copied repo / backup folders
+Verify - Copy/
+Verify/
+payroll-permit-verifier/
